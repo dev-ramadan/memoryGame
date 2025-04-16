@@ -10,7 +10,6 @@ body {
   min-height: 100vh;
   color: white;
   padding: 20px;
-  overflow: hidden;
 }
 @keyframes fadeSlideIn {
   0% {
@@ -197,4 +196,52 @@ body {
   color: white;
   max-width: 900px;
   margin-inline: auto;
+}
+/* تحسين مظهر الحقول في الجوال */
+input.input_name {
+  font-size: 18px;
+}
+
+/* زر البداية */
+.start-content button {
+  font-size: 18px;
+  padding: 12px 24px;
+}
+
+/* تحسين الخط داخل الرسائل */
+.message-box {
+  font-size: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+/* تعديلات عشان الكيبورد ما يغطي الشاشة في الموبايل */
+@media (max-width: 768px) {
+  .start-screen {
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+}
+
+/* تخفيف كثافة اللون عشان وضوح النص */
+body {
+  background: linear-gradient(to bottom right, #002266, #A50044);
+}
+
+/* تحسين حجم الكروت في الشاشات الصغيرة */
+@media (max-width: 400px) {
+  .game-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .card-front img,
+  .card-back img {
+    object-fit: contain;
+  }
 }

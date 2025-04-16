@@ -1,6 +1,7 @@
 let cardsContainer = document.querySelector(".game-board");
 let winMessage = document.querySelector("#win-message");
 let loseMessage = document.querySelector("#lose-message");
+let endGameMessage = document.querySelector("#end-message");
 let times = document.querySelector("#time");
 let nameContainer = document.querySelector("#start-screen");
 let inputName = document.querySelector(".input_name");
@@ -26,12 +27,12 @@ const emojis = [
 
 ];
 let gameLevels = [
-    { level: "1", cards: 8, showTime: 600, time: 31 },
-    { level: "2", cards: 12, showTime: 500, time: 51 },
-    { level: "3", cards: 14, showTime: 400, time: 81 },
-    { level: "4", cards: 16, showTime: 300, time: 131 },
-    { level: "5", cards: 18, showTime: 200, time: 151 },
-    { level: "6", cards: 20, showTime: 100, time: 181 }
+    { level: "1", cards: 4, showTime: 600, time: 31 },
+    { level: "2", cards: 4, showTime: 500, time: 51 },
+    { level: "3", cards: 4, showTime: 400, time: 81 },
+    { level: "4", cards: 4, showTime: 300, time: 131 },
+    { level: "5", cards: 4, showTime: 200, time: 151 },
+    { level: "6", cards: 4, showTime: 100, time: 181 }
 ];
 const getLevel = (level) => {
     let levelNumber = document.querySelector(".leve-number");
@@ -95,6 +96,7 @@ const startTime = () => {
 }
 
 const startGame = () => {
+    window.scrollTo(0, 0);
     const nameInput = document.querySelector(".input_name");
     const name = nameInput.value.trim();
     if (name === "") {
@@ -142,7 +144,6 @@ const checkMatch = () => {
         endGame++;
         setTimeout(() => {
             if (levels === gameLevels.length && endGame === currentCardCount / 2) {
-                const endGameMessage = document.querySelector("#end-message");
                 winMessage.classList.add("hidden");
                 endGameMessage.classList.remove("hidden");
                 sound.src = win;
@@ -166,5 +167,7 @@ const checkMatch = () => {
     }
 };
 const restart = () => {
-    location.reload();
+    levels = 1
+    getLevel(levels);
+    endGameMessage.classList.add("hidden")
 };

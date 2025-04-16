@@ -2,7 +2,7 @@ let cardsContainer = document.querySelector(".game-board");
 let winMessage = document.querySelector("#win-message");
 let loseMessage = document.querySelector("#lose-message");
 let endGameMessage = document.querySelector("#end-message");
-let times = document.querySelector("#time");
+let times = document.querySelector("#counter");
 let nameContainer = document.querySelector("#start-screen");
 let inputName = document.querySelector(".input_name");
 let sound = document.querySelector("#sound");
@@ -27,12 +27,12 @@ const emojis = [
 
 ];
 let gameLevels = [
-    { level: "1", cards: 8, showTime: 600, time: 31 },
-    { level: "2", cards: 12, showTime: 500, time: 51 },
-    { level: "3", cards: 14, showTime: 400, time: 81 },
-    { level: "4", cards: 16, showTime: 300, time: 131 },
-    { level: "5", cards: 18, showTime: 200, time: 151 },
-    { level: "6", cards: 20, showTime: 100, time: 181 }
+    { level: "1", cards: 8, showTime: 600, time: 21 },
+    { level: "2", cards: 12, showTime: 500, time: 31 },
+    { level: "3", cards: 14, showTime: 400, time: 41 },
+    { level: "4", cards: 16, showTime: 300, time: 51 },
+    { level: "5", cards: 18, showTime: 200, time: 71 },
+    { level: "6", cards: 20, showTime: 100, time: 91 }
 ];
 const getLevel = (level) => {
     let levelNumber = document.querySelector(".leve-number");
@@ -82,9 +82,10 @@ const startTime = () => {
     clearInterval(timerInterval)
     inatialTime = 0
     timerInterval = setInterval(() => {
+        const { time } = gameLevels[levels - 1]
+        document.getElementById("time").textContent = time -1
         times.textContent = inatialTime
         inatialTime++
-        const { time } = gameLevels[levels - 1]
         if (inatialTime === time) {
             sound.src = worng ;
             sound.play()
@@ -148,11 +149,13 @@ const checkMatch = () => {
                 endGameMessage.classList.remove("hidden");
                 sound.src = win;
                 sound.play()
+
             }
             else if (endGame === currentCardCount / 2) {
                 winMessage.classList.remove("hidden");
                 sound.src = endLevel;
                 sound.play()
+                clearInterval(timerInterval)
             }
         }, 300);
     } else {
@@ -167,7 +170,8 @@ const checkMatch = () => {
     }
 };
 const restart = () => {
+    loseMessage.classList.add("hidden")
     levels = 1
     getLevel(levels);
-    endGameMessage.classList.add("hidden")
+    startTime()
 };

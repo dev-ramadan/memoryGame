@@ -2,45 +2,53 @@
 <html lang="ar">
 
 <head>
-    <meta charset="UTF-8">
-    <title>لعبة الذاكرة</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>لعبة الذاكرة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <audio src="" id="sound"></audio>
-    <div id="start-screen" class="start-screen">
-        <div class="start-content">
-            <h1>🎮</h1>
-            <input type="text" placeholder="اكتب اسمك" class="input_name" />
-            <button onclick="startGame()">ابدأ اللعبة</button>
-        </div>
+  <audio src="" id="sound"></audio>
+
+  <div id="start-screen" class="start-screen">
+    <div class="start-content">
+      <h1>🎮</h1>
+      <input type="text" placeholder="اكتب اسمك" class="input_name" />
+      <button onclick="startGame()">ابدأ اللعبة</button>
     </div>
-    <div class="top-bar">
-        <div>اللاعب: <span class="player-name">---</span></div>
-        <div>المستوى: <span class="leve-number">1</span></div>
+  </div>
+
+  <div class="top-bar">
+    <div>اللاعب: <span class="player-name">---</span></div>
+    <div>المستوى: <span class="leve-number">1</span></div>
+  </div>
+
+  <div class="timer">الوقت: <span id="time">0</span> ثانية</div>
+  <div class="game-board"></div>
+
+  <div id="win-message" class="hidden">
+    <div class="message-box">
+      🎉 انهيت المستوي
+      <button onclick="nextLevel()"> المستوي التالي 👉</button>
     </div>
-    <div class="timer">الوقت: <span id="time">0</span> ثانية</div>
-    <div class="game-board"></div>
-    <div id="win-message" class="hidden">
-        <div class="message-box">
-            🎉 انهيت المستوي
-            <button onclick="nextLevel()"> المستوي التالي 👉</button>
-        </div>
+  </div>
+
+  <div id="end-message" class="hidden">
+    <div class="message-box">
+      🎉 انهيت اللعبة
+      <button onclick="restart()">اعادة اللعبة 🔎</button>
     </div>
-    <div id="end-message" class="hidden">
-        <div class="message-box">
-            🎉 انهيت اللعبة
-            <button onclick="restart()">اعادة اللعبة 🔎</button>
-        </div>
+  </div>
+
+  <div id="lose-message" class="hidden">
+    <div class="message-box" style="direction: rtl;">
+      🤦‍♂️ انتهي الوقت حاول مرة اخري ولا تياس يا <span class="player-lose" style="color: blue;"></span>
+      <button onclick="restart()">اعادة اللعبة 🔎</button>
     </div>
-    <div id="lose-message" class="hidden">
-        <div class="message-box" style="direction: rtl;">
-           🤦‍♂️ انتهي الوقت حاول مرة اخري ولا تياس يا <span class="player-lose" style="color: blue;"></span>  
-            <button onclick="restart()">اعادة اللعبة 🔎</button>
-        </div>
-    </div>
-    <script src="main.js"></script>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 
 </html>

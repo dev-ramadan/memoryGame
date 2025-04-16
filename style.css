@@ -5,12 +5,19 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 body {
-  background: linear-gradient(to bottom right, #003399, #A50044);
+  background: linear-gradient(to bottom right, #002266, #A50044);
   min-height: 100vh;
   color: white;
   padding: 20px;
 }
+
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -35,7 +42,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #003399;
   background: linear-gradient(to bottom right, #003399, #A50044);
   display: flex;
   align-items: center;
@@ -71,8 +77,8 @@ body {
 
 .start-content button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
   background: #FDB913;
   color: #003399;
   border: none;
@@ -134,7 +140,7 @@ body {
   position: relative;
 }
 
-.rotate{
+.rotate {
   transform: rotateY(180deg);
 }
 
@@ -197,18 +203,11 @@ body {
   max-width: 900px;
   margin-inline: auto;
 }
-/* تحسين مظهر الحقول في الجوال */
+
 input.input_name {
   font-size: 18px;
 }
 
-/* زر البداية */
-.start-content button {
-  font-size: 18px;
-  padding: 12px 24px;
-}
-
-/* تحسين الخط داخل الرسائل */
 .message-box {
   font-size: 20px;
   padding: 20px;
@@ -219,21 +218,15 @@ input.input_name {
   border-radius: 12px;
   backdrop-filter: blur(5px);
 }
-
-/* تعديلات عشان الكيبورد ما يغطي الشاشة في الموبايل */
 @media (max-width: 768px) {
   .start-screen {
+    position: absolute;
     align-items: flex-start;
     padding-top: 60px;
+    height: auto;
+    min-height: 100vh;
   }
 }
-
-/* تخفيف كثافة اللون عشان وضوح النص */
-body {
-  background: linear-gradient(to bottom right, #002266, #A50044);
-}
-
-/* تحسين حجم الكروت في الشاشات الصغيرة */
 @media (max-width: 400px) {
   .game-board {
     grid-template-columns: repeat(2, 1fr);

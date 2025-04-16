@@ -118,7 +118,7 @@ window.onload = () => {
     nameContainer.classList.remove("hidden")
 };
 const rotateCard = (card) => {
-    if (isMatch || cardItems.includes(card)) return;
+    if (isMatch || cardItems.includes(card) || card.classList.contains("rotate"))  return;
     card.classList.add("rotate");
     cardItems.push(card);
     if (cardItems.length >= 2) {

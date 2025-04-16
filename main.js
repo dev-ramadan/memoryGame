@@ -27,12 +27,12 @@ const emojis = [
 
 ];
 let gameLevels = [
-    { level: "1", cards: 4, showTime: 600, time: 31 },
-    { level: "2", cards: 4, showTime: 500, time: 51 },
-    { level: "3", cards: 4, showTime: 400, time: 81 },
-    { level: "4", cards: 4, showTime: 300, time: 131 },
-    { level: "5", cards: 4, showTime: 200, time: 151 },
-    { level: "6", cards: 4, showTime: 100, time: 181 }
+    { level: "1", cards: 8, showTime: 600, time: 31 },
+    { level: "2", cards: 12, showTime: 500, time: 51 },
+    { level: "3", cards: 14, showTime: 400, time: 81 },
+    { level: "4", cards: 16, showTime: 300, time: 131 },
+    { level: "5", cards: 18, showTime: 200, time: 151 },
+    { level: "6", cards: 20, showTime: 100, time: 181 }
 ];
 const getLevel = (level) => {
     let levelNumber = document.querySelector(".leve-number");

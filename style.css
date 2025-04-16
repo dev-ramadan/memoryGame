@@ -10,14 +10,12 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-
 body {
   background: linear-gradient(to bottom right, #002266, #A50044);
   min-height: 100vh;
   color: white;
   padding: 20px;
 }
-
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -227,14 +225,24 @@ input.input_name {
     min-height: 100vh;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 359px) {
   .game-board {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+}
 
-  .card-front img,
-  .card-back img {
-    object-fit: contain;
+@media (min-width: 360px) and (max-width: 499px) {
+  .game-board {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 }
+
+@media (min-width: 500px) {
+  .game-board {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
+
